@@ -284,8 +284,27 @@ section {
 }
 
 
-/* RESPONSIVE */
+/* ==========================================
+   PERBAIKAN RESPONSIVE (GANTI BAGIAN INI)
+   ========================================== */
+
 @media (max-width: 768px) {
+    /* 1. Navbar: Supaya menu tidak bertumpuk */
+    .navbar {
+        padding: 10px 20px;
+        flex-direction: column; /* Menu pindah ke bawah logo */
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    /* 2. Hero Section: Ukuran font & gambar */
+    .hero-text h1 {
+        font-size: 40px; /* Diperkecil dari 75px */
+    }
 
     .hero-container {
         flex-direction: column;
@@ -294,23 +313,41 @@ section {
     }
 
     .hero-logo img {
-        width: 250px;
+        width: 80%; /* Mengikuti lebar layar */
+        max-width: 300px;
     }
 
-    .about {
-        padding: 40px 20px;
+    /* 3. About Section: Teks jangan terlalu besar */
+    .about p {
+        font-size: 18px; /* Diperkecil dari 25px agar enak dibaca */
+        line-height: 1.6;
     }
 
+    /* 4. Cat Grid: Jadi 1 kolom */
     .cat-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .service-container {
-        flex-direction: column;
-    }
-    .nav-links {
-        align-items: center;
-        padding: 20px 0;
+    /* 5. Slider & Services: INI PENYEBAB UTAMA OVERFLOW */
+    .slider {
+        width: 100%; /* Jangan pakai 800px */
+        max-width: 100%;
     }
 
+    .service-card {
+        flex-direction: column; /* Gambar di atas, teks di bawah */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .service-card img {
+        width: 150px; /* Perkecil gambar service */
+        height: 150px;
+    }
+
+    /* Tombol panah: kita sembunyikan di HP atau taruh di posisi aman */
+    .arrow {
+        display: none; /* Sembunyikan panah di HP agar tidak meluber keluar */
+    }
 }
