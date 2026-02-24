@@ -285,69 +285,69 @@ section {
 
 
 /* ==========================================
-   PERBAIKAN RESPONSIVE (GANTI BAGIAN INI)
+   PERBAIKAN TOTAL RESPONSIVE
    ========================================== */
 
-@media (max-width: 768px) {
-    /* 1. Navbar: Supaya menu tidak bertumpuk */
+@media screen and (max-width: 768px) {
+    /* Paksa semua elemen tidak boleh lebih lebar dari layar */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Navbar: Buat bertumpuk agar tidak berantakan */
     .navbar {
-        padding: 10px 20px;
-        flex-direction: column; /* Menu pindah ke bawah logo */
-        gap: 10px;
+        padding: 10px !important;
+        flex-direction: column !important;
+        position: relative !important; /* Agar tidak menutupi konten saat scroll di HP */
     }
 
     .nav-links {
-        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px !important;
+        padding: 10px 0 !important;
+    }
+
+    .nav-links a {
         font-size: 14px;
     }
 
-    /* 2. Hero Section: Ukuran font & gambar */
+    /* Hero: Perkecil teks dan gambar */
     .hero-text h1 {
-        font-size: 40px; /* Diperkecil dari 75px */
+        font-size: 35px !important;
     }
 
     .hero-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 
     .hero-logo img {
-        width: 80%; /* Mengikuti lebar layar */
-        max-width: 300px;
+        width: 70% !important;
+        max-width: 250px;
     }
 
-    /* 3. About Section: Teks jangan terlalu besar */
-    .about p {
-        font-size: 18px; /* Diperkecil dari 25px agar enak dibaca */
-        line-height: 1.6;
-    }
-
-    /* 4. Cat Grid: Jadi 1 kolom */
-    .cat-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* 5. Slider & Services: INI PENYEBAB UTAMA OVERFLOW */
+    /* Slider: INI BIANG KEROK WEB JADI BERANTAKAN */
     .slider {
-        width: 100%; /* Jangan pakai 800px */
-        max-width: 100%;
+        width: 100% !important;
+        margin: 20px 0 !important;
     }
 
     .service-card {
-        flex-direction: column; /* Gambar di atas, teks di bawah */
-        text-align: center;
-        padding: 30px 20px;
+        flex-direction: column !important;
+        padding: 20px !important;
+        width: 100% !important;
     }
 
     .service-card img {
-        width: 150px; /* Perkecil gambar service */
-        height: 150px;
+        width: 120px !important;
+        height: 120px !important;
     }
 
-    /* Tombol panah: kita sembunyikan di HP atau taruh di posisi aman */
-    .arrow {
-        display: none; /* Sembunyikan panah di HP agar tidak meluber keluar */
+    /* Grid Kucing: Jadi 1 kolom */
+    .cat-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 }
