@@ -289,65 +289,87 @@ section {
    ========================================== */
 
 @media screen and (max-width: 768px) {
-    /* Paksa semua elemen tidak boleh lebih lebar dari layar */
+    /* 1. Paksa body tidak meluber ke samping */
     body, html {
         overflow-x: hidden;
         width: 100%;
     }
 
-    /* Navbar: Buat bertumpuk agar tidak berantakan */
+    /* 2. NAVBAR: Satu baris dengan scroll horizontal jika tidak muat */
     .navbar {
-        padding: 10px !important;
-        flex-direction: column !important;
-        position: relative !important; /* Agar tidak menutupi konten saat scroll di HP */
+        padding: 10px 15px !important;
+        flex-direction: row !important; /* Pastikan tetap satu baris */
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important; 
+    }
+
+    .nav-logo {
+        font-size: 16px;
+        white-space: nowrap; /* Logo tidak turun ke bawah */
+        margin-right: 10px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px !important;
-        padding: 10px 0 !important;
+        display: flex !important;
+        flex-direction: row !important; /* Tetap satu baris */
+        gap: 12px !important;
+        overflow-x: auto; /* Jika link terlalu banyak, bisa di-geser/scroll */
+        padding: 5px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Sembunyikan scrollbar agar rapi */
     }
 
     .nav-links a {
-        font-size: 14px;
+        font-size: 12px;
+        white-space: nowrap; /* Teks menu tidak patah jadi 2 baris */
     }
 
-    /* Hero: Perkecil teks dan gambar */
-    .hero-text h1 {
-        font-size: 35px !important;
-    }
-
+    /* 3. HERO: Gambar -> Title -> Sub-title */
     .hero-container {
-        flex-direction: column !important;
-        gap: 20px !important;
+        display: flex;
+        flex-direction: column-reverse !important; /* Membalik urutan: Logo jadi di ATAS */
+        gap: 15px !important;
+        padding-top: 100px; /* Jarak agar tidak tertutup navbar */
     }
 
     .hero-logo img {
-        width: 70% !important;
-        max-width: 250px;
+        width: 60% !important; /* Perkecil logo agar tidak memenuhi layar */
+        max-width: 200px;
+        margin: 0 auto;
     }
 
-    /* Slider: INI BIANG KEROK WEB JADI BERANTAKAN */
+    .hero-text h1 {
+        font-size: 32px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .hero-text p {
+        font-size: 14px !important;
+    }
+
+    /* 4. SLIDER & SERVICE (Penyebab utama tampilan berantakan) */
     .slider {
         width: 100% !important;
-        margin: 20px 0 !important;
     }
 
     .service-card {
         flex-direction: column !important;
         padding: 20px !important;
-        width: 100% !important;
+        text-align: center;
     }
 
     .service-card img {
-        width: 120px !important;
-        height: 120px !important;
+        width: 150px !important;
+        height: 150px !important;
+        margin: 0 auto;
     }
 
-    /* Grid Kucing: Jadi 1 kolom */
+    /* 5. GRID KUCING */
     .cat-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        grid-template-columns: 1fr !important; /* Satu kolom saja di HP */
+        gap: 15px !important;
     }
 }
